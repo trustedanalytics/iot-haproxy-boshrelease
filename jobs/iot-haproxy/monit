@@ -1,0 +1,11 @@
+check process iot-haproxy
+  with pidfile /var/vcap/sys/run/iot-haproxy/pid
+  start program "/var/vcap/jobs/iot-haproxy/bin/monit_debugger haproxy_ctl '/var/vcap/jobs/iot-haproxy/bin/haproxy_ctl start'"
+  stop program "/var/vcap/jobs/iot-haproxy/bin/monit_debugger haproxy_ctl '/var/vcap/jobs/iot-haproxy/bin/haproxy_ctl stop'"
+  group vcap
+  depends on consul-template
+
+check file haproxy_conf 
+  with path <%= p("ha_proxy.config_file") %>
+  if changed timestamp then exec "/var/vcap/jobs/iot-haproxy/bin/haproxy_ctl restart"
+  group vcap

@@ -1,0 +1,26 @@
+---
+name: trustedanalytics-mqtt-aws-vpc
+director_uuid: 7715d278-ee51-4fe3-8a28-3897699085b5
+
+releases:
+  - name: iot-haproxy
+    version: latest
+  - name: consul
+    version: latest
+    git: https://github.com/cloudfoundry-community/consul-boshrelease.git
+
+stemcells:
+  - { name: bosh-aws-xen-ubuntu-trusty-go_agent, version: 2989 }
+
+templates:
+  - trustedanalytics-mqtt-deployment.yml
+  - trustedanalytics-mqtt-jobs.yml
+  - trustedanalytics-mqtt-aws-vpc.yml
+
+meta:
+  subnet_ids:
+    trustedanalytics_mqtt: subnet-1b2b9b42
+  security_groups:
+    - cf-0-vpc-52dc5937
+  instance_type: m3.medium
+  

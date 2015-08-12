@@ -1,0 +1,5 @@
+---
+name: iot-haproxy
+files:
+- iot-haproxy/haproxy-1.5.10.tar.gz
+- iot-haproxy/pcre-8.36.tar.gz

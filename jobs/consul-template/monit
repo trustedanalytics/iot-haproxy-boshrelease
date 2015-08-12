@@ -1,0 +1,6 @@
+check process consul-template
+  with pidfile /var/vcap/sys/run/consul-template/consul-template.pid
+  start program "/var/vcap/jobs/consul-template/bin/monit_debugger consul-template_ctl '/var/vcap/jobs/consul-template/bin/consul-template_ctl start'"
+  stop program "/var/vcap/jobs/consul-template/bin/monit_debugger consul-template_ctl '/var/vcap/jobs/consul-template/bin/consul-template_ctl stop'"
+  group vcap
+  depends on consul_agent

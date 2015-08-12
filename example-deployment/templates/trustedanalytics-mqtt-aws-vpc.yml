@@ -1,0 +1,35 @@
+meta:
+  subnet_ids:
+    trustedanalytics_mqtt: (( merge ))
+  security_groups: (( merge ))
+  instance_type: m3.medium
+  subnets:
+    - range: 10.10.5.0/24
+      name: default_unused
+      reserved:
+        - 10.10.5.2 - 10.10.5.9
+      static:
+        - 10.10.5.20 - 10.10.5.240
+      gateway: 10.10.5.1
+      dns:
+        - 10.10.0.2
+      cloud_properties:
+        security_groups: (( meta.security_groups ))
+        subnet: (( meta.subnet_ids.trustedanalytics_mqtt ))
+
+networks:
+  - name: default
+    type: manual
+    subnets: (( meta.subnets ))
+
+resource_pools:
+  - name: default
+    cloud_properties:
+      instance_type: (( meta.instance_type ))
+      ephemeral_disk:
+        size: 163840
+        type: gp2
+
+compilation:
+  cloud_properties:
+    instance_type: m3.medium

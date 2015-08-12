@@ -1,0 +1,35 @@
+global
+    log 127.0.0.1   syslog info
+    daemon
+    user vcap
+    group vcap
+    maxconn 64000
+    spread-checks 4
+    tune.ssl.default-dh-param <%= p("ha_proxy.default_dh_param") %>
+
+defaults
+    log global
+    maxconn 64000
+    option contstats
+    timeout connect         <%= p("ha_proxy.connect_timeout").to_i    * 1000 %>ms
+    timeout client          <%= p("ha_proxy.client_timeout").to_i     * 1000 %>ms
+    timeout server          <%= p("ha_proxy.server_timeout").to_i     * 1000 %>ms
+    timeout tunnel          <%= p("ha_proxy.websocket_timeout").to_i  * 1000 %>ms
+    timeout queue           <%= p("ha_proxy.queue_timeout").to_i      * 1000 %>ms
+
+listen web 127.0.0.1:80
+
+
+{{range service "mosquitto"}}
+frontend frontend-{{.ID}} 
+    mode tcp
+    bind :{{.Port}}
+    default_backend backend-{{.ID}}
+
+backend backend-{{.ID}}
+    mode tcp
+    server {{.Name}} {{.Address}}:{{.Port}} check inter 1000
+
+
+{{end}}
+

@@ -1,0 +1,13 @@
+---
+iot-haproxy/haproxy-1.5.10.tar.gz:
+  object_id: 6790deff-53a3-457c-bad3-b17b2e491c34
+  sha: 2af3b740e84f10cbd0c90a78c30a222a24fb2945
+  size: 1339873
+iot-haproxy/pcre-8.36.tar.gz:
+  object_id: edf96bb5-a7e4-4a68-a0bd-8e3c087a5111
+  sha: fb537757756818133d8157ec878bc11f5a93ef4d
+  size: 2009464
+consul-template/consul-template_0.10.0_linux_amd64.tar.gz:
+  object_id: dd99cc49-fe8e-4e24-bb1e-7c8662c435ae
+  sha: 606678dfe2a50b06c10d5d3872b31e7495f5e8da
+  size: 2559734

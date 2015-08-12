@@ -1,0 +1,25 @@
+networks: (( merge ))
+
+jobs:
+  - name: iot-haproxy
+    templates:
+      - { name: consul, release: consul }
+      - { name: consul-template, release: iot-haproxy }
+      - { name: iot-haproxy, release: iot-haproxy }
+    instances: 1
+    resource_pool: default
+    persistent_disk: 65536
+    networks:
+      - name: default
+    properties:
+      networks:
+        apps: default
+      consul:
+        cluster:
+          join_host: 10.10.5.10
+          size: 1
+      ha_proxy:
+        config_file: /var/vcap/store/consul-template/haproxy.config
+      consul_template:
+        output_file: /var/vcap/store/consul-template/haproxy.config
+

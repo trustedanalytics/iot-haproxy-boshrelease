@@ -1,0 +1,11 @@
+---
+provider:
+  name: aws
+  region: eu-west-1
+blobstore:
+  provider: s3
+  name: iot-haproxy
+  options:
+    bucket_name: iot-haproxy
+    endpoint: https://s3-eu-west-1.amazonaws.com
+final_name: iot-haproxy
