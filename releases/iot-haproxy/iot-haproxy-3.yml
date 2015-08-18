@@ -1,0 +1,29 @@
+---
+packages:
+- name: iot-haproxy
+  version: c01743ed5cb3adcb3d042cbe01bbaa8a0f385045
+  fingerprint: c01743ed5cb3adcb3d042cbe01bbaa8a0f385045
+  sha1: e5caef4277534937501dd18fc7ab29430a598cad
+  dependencies: []
+- name: consul-template
+  version: 01053e6e9e8907a7954d08b4f8fa39c684c6e82c
+  fingerprint: 01053e6e9e8907a7954d08b4f8fa39c684c6e82c
+  sha1: 9b5101822654b69c020fd034fa510bdb60c69447
+  dependencies: []
+jobs:
+- name: iot-haproxy
+  version: 82f2b35dfcba15fa3fef71b74c8a45ce2d034cb3
+  fingerprint: 82f2b35dfcba15fa3fef71b74c8a45ce2d034cb3
+  sha1: 322834dfef583443fb6277f0f41611d3f830c5da
+- name: consul-template
+  version: fe15ab1ba3c9d4b36422d0d3bc8e103992ffa0b2
+  fingerprint: fe15ab1ba3c9d4b36422d0d3bc8e103992ffa0b2
+  sha1: 9ecc7c55c43ad57e9204c09d63c7a648e34f659e
+license:
+  version: 998470265c73e170044cbaa207e6b6728bfdf972
+  fingerprint: 998470265c73e170044cbaa207e6b6728bfdf972
+  sha1: b8b6bbcce7164489f8162e085f2406f1ebfeeaa8
+commit_hash: 24d0cde8
+uncommitted_changes: true
+name: iot-haproxy
+version: '3'
