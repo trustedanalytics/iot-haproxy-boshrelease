@@ -9,4 +9,4 @@ export CONSUL_TEMPLATE_VERSION=0.10.0
 mkdir -p $BOSH_INSTALL_TARGET/bin
 
 tar xfz consul-template/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.tar.gz
-cp -a consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64/* $BOSH_INSTALL_TARGET/bin
+cp -a consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64/* $BOSH_INSTALL_TARGET/bin/consul-template-proper

@@ -19,7 +19,7 @@ case $1 in
 
     echo "Starting $JOB_NAME ...."
 
-    exec chpst -u vcap:vcap consul-template \
+    exec chpst -u vcap:vcap consul-template-proper \
 	-consul 127.0.0.1:8500 \
 	-template "${HAPROXY_TEMPLATE}:${HAPROXY_CONFIG}" \
 	-pid-file $PIDFILE \
