@@ -1,3 +1,5 @@
+[![Dependency Status](https://gemnasium.com/trustedanalytics/iot-haproxy-boshrelease.svg)](https://gemnasium.com/trustedanalytics/iot-haproxy-boshrelease)
+
 # BOSH Release for iot-haproxy 
 
 ## Usage
